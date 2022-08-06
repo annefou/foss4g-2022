@@ -32,6 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-GAUL = gpd.read_file('zip+https://mars.jrc.ec.europa.eu/asap/files/gaul1_asap.zip')
+['import os.path', 'import wget', '', "site_url = 'https://zenodo.org/record/6969999/files/C_GLS_NDVI_20220101_20220701_Lombardia_S3_2_masked.nc'", '']
+...
+['    else:', '        file_name = wget.download(site_url)', '        print(file_name)', 'except:', '    print("An error occured")']
 -------------------
 
