@@ -32,8 +32,12 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-["s3path = 's3://foss4g-data/CGLS_LTS_1999_2019/c_gls_*.nc'", 'chunk_info_list = []', 'time_list = []', '', 'for file in fs.glob(s3path):']
-...
-['    t = datetime.strptime(file.split(\'/\')[-1].split(\'_\')[3].replace(\'1999-\', \'\'), "%Y-%m%d")', '    time_list.append(t)', '    with fsspec.open(url) as inf:', '        h5chunks = kerchunk.hdf.SingleHdf5ToZarr(inf, url, inline_threshold=100)', '        chunk_info_list.append(h5chunks.translate())']
+import pooch
+
+cgls_file = pooch.retrieve(
+    url="https://zenodo.org/record/6969999/files/C_GLS_NDVI_20220101_20220701_Lombardia_S3_2_masked.nc",
+    known_hash="md5:be3f16913ebbdb4e7af227f971007b22",
+    path=f".",
+)
 -------------------
 
